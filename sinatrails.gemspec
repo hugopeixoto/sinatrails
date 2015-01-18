@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hugo.peixoto@gmail.com"]
   spec.summary       = %q{rails-api and sinatra integration}
   spec.description   = %q{A set of sinatra helpers to make rails-api applications work with sinatra, with as little modification as possible.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/hugopeixoto/sinatrails"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
