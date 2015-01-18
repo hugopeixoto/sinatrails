@@ -9,11 +9,6 @@ require 'sinatra/base'
 require 'json'
 require 'active_support/ordered_options'
 
-module ActionController
-  class API < Sinatrails::Controller
-  end
-end
-
 class Sinatra::Base
   before do
     body = request.body.read
