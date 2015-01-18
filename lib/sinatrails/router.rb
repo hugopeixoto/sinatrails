@@ -6,10 +6,10 @@ module Sinatrails
       action = action.to_sym
       controller = (controller.camelize + 'Controller').constantize
 
-      defaults = indifferent_params opts.fetch(:defaults, {})
+      defaults = opts.fetch(:defaults, {})
   
       sinatra.send method, path do
-        params.merge! defaults
+        params.merge! indifferent_params(defaults)
         controller.new(params, request, headers).execute action
       end
     end
