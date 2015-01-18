@@ -15,8 +15,8 @@ module Sinatrails
     end
   
     [:get, :post, :put, :patch, :delete].each do |method|
-      define_method method do |path, target|
-        add_route method, path, target
+      define_method method do |path, target, opts={}|
+        add_route method, path, target, opts
       end
     end
   end
