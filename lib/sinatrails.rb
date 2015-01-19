@@ -13,6 +13,7 @@ class Sinatra::Base
   before do
     body = request.body.read
     params.merge! indifferent_params(JSON.parse(body)) if body != ""
+    logger.info "Parameters: #{params}"
   end
 
   def self.draw_routes &block
