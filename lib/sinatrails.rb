@@ -7,6 +7,7 @@ require "sinatrails/controller"
 require 'sinatra/base'
 
 require 'json'
+require 'erb'
 require 'active_support/ordered_options'
 
 class Sinatra::Base
@@ -30,7 +31,10 @@ class Sinatra::Base
 
   def self.read_opts file
     opts = ActiveSupport::OrderedOptions.new
-    env_opts = YAML.load(IO.read(file))[settings.environment.to_s]
+
+    yaml_source = ERB.new(File.read(file)).result
+
+    env_opts = YAML.load(yaml_source)[settings.environment.to_s]
 
     opts.merge! env_opts.symbolize_keys
     opts
